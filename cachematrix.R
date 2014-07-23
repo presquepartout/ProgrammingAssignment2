@@ -1,4 +1,4 @@
-x## This code provides a mechanism for caching inverted matrices.
+## This code provides a mechanism for caching inverted matrices.
 ## It contains two functions: makeCacheMatrix, which creates the 
 ## cache, and cacheSolve, which returns inverted matrices. 
 ## If no inverted matrix is cached, cacheSolve inverts its input.
