@@ -1,0 +1,36 @@
+## This code creates a mechanism for caching inverted matrices.
+## The first function creates the cache, and the second function
+## returns inverted matrices (either by inverting or retrieving from the cache).
+
+## makeCacheMatrix creates a cache for inverted matrices
+
+makeCacheMatrix <- function(x = matrix()) {
+        m <- NULL
+        set <- function(y) {
+                x <<- y
+                m <<- NULL
+        }
+        get <- function() x
+        setSolved <- function(solve) m <<- solve
+        getSolved <- function() m
+        list(set = set, get = get, 
+               setSolved = setSolved,
+               getSolved = getSolved)
+}
+
+
+## cacheSolve will either invert the matrix x or retrieve 
+## its cached inverse from makeCacheMatrix
+
+cacheSolve <- function(x, ...) {
+        ## Return a matrix that is the inverse of 'x'
+        m <- x$getSolved()
+        if(!is.null(m) {
+                message("getting cached data")
+                return(m)
+        }
+        data <- x$get()
+        m <- solve(data, ...)
+        x$setSolved(m)
+        m
+}

@@ -1,4 +1,4 @@
-## This code provides a mechanism for caching inverted matrices.
+x## This code provides a mechanism for caching inverted matrices.
 ## It contains two functions: makeCacheMatrix, which creates the 
 ## cache, and cacheSolve, which returns inverted matrices. 
 ## If no inverted matrix is cached, cacheSolve inverts its input.
@@ -37,3 +37,18 @@ cacheSolve <- function(x, ...) {
         m
 }
 
+## Testing this code: 
+## > source("./cachematrix.R")
+## > myMatrix <- matrix(1:4, nrow=2, ncol=2)
+## > x <- makeCacheMatrix(myMatrix)
+## > cacheSolve(x)
+##      [,1] [,2]
+## [1,]   -2  1.5
+## [2,]    1 -0.5
+##
+## (Repeat call to cacheSolve to show retrieval of cache version)
+## > cacheSolve(x)
+## getting cached data
+##      [,1] [,2]
+## [1,]   -2  1.5
+## [2,]    1 -0.5
